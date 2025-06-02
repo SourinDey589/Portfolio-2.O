@@ -35,8 +35,8 @@ export const sourinHeroData: SourinHeroData = {
   subHeadline: "Bringing outstanding computer and communication skills to innovative projects.",
   ctaProjectsText: "View My Projects",
   ctaContactText: "Connect with Me",
-  photoUrl: "https://placehold.co/400x400.png", // Replace with actual photo
-  dataAiHintPhoto: "professional portrait developer",
+  photoUrl: "/sourin-dey-profile.jpeg", // Updated image path
+  dataAiHintPhoto: "Sourin Dey professional photo", // Updated AI hint
 };
 
 export const aboutMeData: AboutMeData = {
