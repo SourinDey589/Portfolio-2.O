@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Emma Holistic', // Updated Title
-  description: 'My Journey of Balanced and Healthy Living', // Updated Description
+  title: 'Sourin Dey | Aspiring Full Stack Developer', 
+  description: 'Portfolio of Sourin Dey, an aspiring full stack developer showcasing projects and skills.',
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}> {/* Removed 'dark' class */}
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <main>{children}</main>
         <Toaster />
       </body>

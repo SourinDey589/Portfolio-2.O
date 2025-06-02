@@ -1,95 +1,145 @@
-import type { IntroductionData, SkillCategory, ProjectData, HeroData } from '@/types';
+import type {
+  SourinHeaderData,
+  SourinHeroData,
+  AboutMeData,
+  SourinSkillsPageData,
+  SourinProjectsPageData,
+  AchievementData,
+  SourinContactInfo,
+  FooterData,
+  SocialLinkItem
+} from '@/types';
 
-// This data will be used by the new Hero section
-export const heroData: HeroData = {
-  siteName: "EMMA HOLISTIC",
-  mainHeading: "Welcome to Emma Holistic",
-  description: "Through nourishing recipes, mindful movement, and sustainable practices, I share my journey of balanced and healthy living.",
-  bulletPoints: [
+// --- Sourin Dey Portfolio Data ---
+
+export const sourinSocialLinks: SocialLinkItem[] = [
+  { platform: 'linkedin', url: 'https://www.linkedin.com/in/sourin-dey-b575b8227/' },
+  { platform: 'github', url: 'https://github.com/Sourin07' },
+];
+
+export const sourinHeaderData: SourinHeaderData = {
+  brandName: "Sourin Dey",
+  navLinks: [
+    { label: "Home", href: "#home" },
+    { label: "About Me", href: "#about-me" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Achievements", href: "#achievements" },
+    { label: "Contact", href: "#contact" },
+  ],
+  socialLinks: sourinSocialLinks,
+};
+
+export const sourinHeroData: SourinHeroData = {
+  headline: "Sourin Dey | Aspiring Full Stack Developer",
+  subHeadline: "Bringing outstanding computer and communication skills to innovative projects.",
+  ctaProjectsText: "View My Projects",
+  ctaContactText: "Connect with Me",
+  photoUrl: "https://placehold.co/400x400.png", // Replace with actual photo
+  dataAiHintPhoto: "professional portrait developer",
+};
+
+export const aboutMeData: AboutMeData = {
+  headline: "My Journey & Passion for Technology",
+  summaryPoints: [
+    "Confident Student passionate about learning new skills.",
+    "Ambitious and driven individual ready and willing to work hard and learn from professionals.",
+    "Possess outstanding computer and communication skills, crucial for thriving in collaborative and innovative tech environments."
+  ],
+  education: [
+    "Dr. B.C. Roy Engineering College Academy Of Professional Courses, Durgapur (B.Tech in Computer Science & Engineering, 2020-2024, CGPA: 8.45)",
+    "Ukhra Kunja Behari Institution (Higher Secondary, WBCHSE, 2020, Percentage: 81%)",
+    "Ukhra Kunja Behari Institution (Secondary, WBBSE, 2018, Percentage: 80%)"
+  ],
+  internship: "Completed a valuable internship with Globsyn Finishing School, Kolkata, gaining practical industry exposure.",
+  personalSkills: ["Team Management", "Positive Attitude", "Easy Adaptable by Nature", "Hard Working", "Coding", "Singing", "Playing Guitar", "Drawing", "Playing Badminton"],
+};
+
+export const sourinSkillsData: SourinSkillsPageData = {
+  headline: "My Technical Toolkit",
+  categories: [
     {
-      lead: "Explore",
-      text: "Learn how to live healthier with my curated content designed to uplift and empower you.",
+      categoryName: "Programming Languages",
+      skills: [{ name: "Java" }, { name: "Python" }, { name: "C" }],
+      iconName: "Code2",
     },
     {
-      lead: "Learn",
-      text: "Access in-depth tutorials, tips, and guides tailored to help you live your happiest life.",
-    }
+      categoryName: "Web Technologies",
+      skills: [{ name: "HTML" }, { name: "JavaScript" }, { name: "CSS" }, { name: "React JS" }, { name: "Node.js" }, { name: "Express.js" }],
+      iconName: "Globe",
+    },
+    {
+      categoryName: "Databases",
+      skills: [{ name: "SQL" }, { name: "Oracle" }, { name: "MongoDB" }],
+      iconName: "Database",
+    },
+    {
+      categoryName: "Other Technical Skills",
+      skills: [{ name: "Computer Networking" }, { name: "MERN Stack" }, { name: "Material-UI"}],
+      iconName: "Network",
+    },
   ],
-  mainImageUrl: "https://placehold.co/600x600.png", // Main circular image
-  navLinks: [
-    { label: "MY VLOG", href: "#vlog" },
-    { label: "MY STORY", href: "#story" },
-    { label: "COLLABORATION", href: "#collaboration" },
-    { label: "SOCIALS", href: "#socials" },
-    { label: "CONTACTS", href: "#contacts" },
+  languages: [
+    { name: "English", proficiency: "Fluent" },
+    { name: "Hindi", proficiency: "Fluent" },
+    { name: "Bengali", proficiency: "Fluent (Native)" },
   ],
-  socialLinks: {
-    youtube: "https://youtube.com",
-    twitter: "https://twitter.com",
-    facebook: "https://facebook.com",
-    tiktok: "https://tiktok.com", // Assuming TikTok, based on icon
-  },
-  buttons: [
-    { label: "My Vlogs", href: "#my-vlogs", variant: "primary" },
-    { label: "YouTube Shorts", href: "#yt-shorts", variant: "secondary", icon: "Youtube" },
-  ],
-  contactEmail: "emma.holistic@example.com", // Added for potential use in contacts
 };
 
-
-// Existing data, can be repurposed or used for other pages later
-export const introductionData: IntroductionData = {
-  name: "Emma Holistic", // Updated to match example
-  title: "Youtuber & Blogger", // Updated
-  professionalSummary: heroData.description, // Re-using from heroData for consistency
-  photoUrl: heroData.mainImageUrl, // Re-using
-  contact: {
-    email: heroData.contactEmail,
-    phone: "+1 123-456-7890", // Placeholder
-    linkedin: "linkedin.com/in/emmaholistic", // Placeholder
-    github: "github.com/emmaholistic", // Placeholder
-    website: "emmaholistic.com" // Placeholder
-  },
+export const sourinProjectsData: SourinProjectsPageData = {
+  headline: "Showcasing My Work",
+  projects: [
+    {
+      id: "project-tour-booking",
+      title: "Tour-Booking Website",
+      description: "Collaborated in a team of two to design and develop a comprehensive Tour-Booking Website. This platform aims at streamlining tour booking processes, offering users an intuitive interface to browse, select, and book tours. Key features include user authentication, tour listings with detailed descriptions, a secure booking system, and an admin panel for managing tours and bookings.",
+      technologies: ["React.js", "Express.js", "Node.js", "MongoDB", "Material-UI"],
+      teamSize: 2,
+      imageUrl: "https://placehold.co/600x400.png",
+      dataAiHintImage: "travel website booking",
+      repoUrl: "https://github.com/Sourin07/Tour-Booking-Website",
+      // liveDemoUrl: "#" // Add if available
+    },
+    {
+      id: "project-portfolio",
+      title: "Personal Portfolio Website",
+      description: "Developed a dynamic personal portfolio website to showcase my skills, projects, and achievements. This website is built using Next.js and Tailwind CSS, featuring a clean, modern design and responsive layout. It serves as a central hub for potential employers and collaborators to learn more about my work and capabilities.",
+      technologies: ["Next.js", "React.js", "Tailwind CSS", "TypeScript"],
+      imageUrl: "https://placehold.co/600x400.png",
+      dataAiHintImage: "portfolio website developer",
+      repoUrl: "https://github.com/Sourin07/My-Portfolio", // Example link
+    },
+    // Add more projects as needed
+    // {
+    //   id: "project-placeholder",
+    //   title: "Upcoming Project (Coming Soon)",
+    //   description: "Details about this exciting new project will be available soon. Stay tuned!",
+    //   technologies: ["TBD"],
+    //   imageUrl: "https://placehold.co/600x400.png",
+    //   dataAiHintImage: "technology abstract",
+    // }
+  ],
 };
 
-export const skillsData: SkillCategory[] = [
-  {
-    categoryName: "Content Creation",
-    skills: ["Video Editing", "Script Writing", "Photography", "SEO Optimization"],
-    iconName: "Code2", // Placeholder icon
-  },
-  {
-    categoryName: "Wellness Topics",
-    skills: ["Nutrition", "Mindfulness", "Yoga", "Sustainable Living"],
-    iconName: "Palette", // Placeholder icon
-  },
-];
+export const achievementsData: AchievementData = {
+  headline: "Recognitions & Accomplishments",
+  achievements: [
+    "Successfully completed RDBMS PostgreSQL course with a score of 77.50% from the Spoken Tutorial Project, IIT Bombay.",
+    "Active Member of the Computer Society of India (CSI).",
+    "Successfully completed Android app development using Kotlin course with a score of 85.00% from the Spoken Tutorial Project, IIT Bombay.",
+  ],
+};
 
-export const projectsData: ProjectData[] = [
-  {
-    id: "project1",
-    title: "Nourishing Recipes Series",
-    category: "Vlog Series",
-    thumbnailUrl: "https://placehold.co/600x400.png",
-    dataAiHint: "healthy food",
-    shortDescription:
-      "A collection of video recipes focusing on healthy and delicious meals.",
-    detailedDescription:
-      "This series showcases easy-to-follow recipes that promote a balanced diet. Each video includes nutritional information and cooking tips.",
-    technologies: ["Video Production", "Recipe Development"],
-    projectUrl: "#",
-  },
-  {
-    id: "project2",
-    title: "Mindful Movement Guide",
-    category: "E-book",
-    thumbnailUrl: "https://placehold.co/600x400.png",
-    dataAiHint: "yoga meditation",
-    shortDescription:
-      "An e-book guide to incorporating mindful movement and meditation into daily life.",
-    detailedDescription:
-      "This guide provides practical exercises and tips for reducing stress and improving well-being through mindfulness and gentle movement.",
-    technologies: ["Writing", "Graphic Design"],
-    projectUrl: "#",
-  },
-];
+export const sourinContactData: SourinContactInfo = {
+  headline: "Let's Connect!",
+  email: "sourindey510@gmail.com",
+  phone: "+91 7478888311",
+  linkedinUrl: "https://www.linkedin.com/in/sourin-dey-b575b8227/",
+  githubUrl: "https://github.com/Sourin07",
+  location: "Dakshinkhanda, Andal, West Bengal, India - 713321",
+};
+
+export const footerData: FooterData = {
+  copyrightText: `© ${new Date().getFullYear()} Sourin Dey. All rights reserved.`,
+  socialLinks: sourinSocialLinks,
+};

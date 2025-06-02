@@ -1,12 +1,14 @@
+// This component is for the original PortfolioPrint design.
+// For Sourin Dey's portfolio, see src/components/portfolio-sourin/ProjectCardSourin.tsx
 "use client";
 
 import { useState } from 'react';
 import Image from 'next/image';
-import type { ProjectData } from '@/types';
+import type { ProjectData } from '@/types'; // Original ProjectData
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github, Eye, Sparkles, Info } from 'lucide-react';
+import { ExternalLink, Github, Info, Sparkles } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -16,7 +18,7 @@ import {
   DialogFooter,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import AISummaryGenerator from './AISummaryGenerator';
+import AISummaryGenerator from './AISummaryGenerator'; // Original AI Summary
 
 interface ProjectCardProps {
   project: ProjectData;
@@ -115,7 +117,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         contentType="project"
         onSummaryGenerated={(summary) => {
           if (!summary.startsWith("AI could not generate a summary.")) {
-             setCurrentShortDescription(summary); // Update the displayed summary
+             setCurrentShortDescription(summary); 
           }
         }}
       />

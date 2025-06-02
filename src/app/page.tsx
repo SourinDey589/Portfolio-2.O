@@ -1,17 +1,48 @@
-import AppHeader from '@/components/app/AppHeader'; // Updated path
-import HeroSection from '@/components/app/HeroSection'; // Updated path
-import { heroData } from '@/lib/data';
+import { Separator } from '@/components/ui/separator';
+import Header from '@/components/portfolio-sourin/Header';
+import HeroSection from '@/components/portfolio-sourin/HeroSection';
+import AboutMeSection from '@/components/portfolio-sourin/AboutMeSection';
+import SkillsSection from '@/components/portfolio-sourin/SkillsSection';
+import ProjectsSection from '@/components/portfolio-sourin/ProjectsSection';
+import AchievementsSection from '@/components/portfolio-sourin/AchievementsSection';
+import ContactSection from '@/components/portfolio-sourin/ContactSection';
+import Footer from '@/components/portfolio-sourin/Footer';
 
-export default function HomePage() {
+import { 
+  sourinHeaderData,
+  sourinHeroData,
+  aboutMeData,
+  sourinSkillsData,
+  sourinProjectsData,
+  achievementsData,
+  sourinContactData,
+  footerData
+} from '@/lib/data';
+
+export default function PortfolioPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <AppHeader 
-        siteName={heroData.siteName}
-        navLinks={heroData.navLinks}
-        socialLinks={heroData.socialLinks}
-      />
-      <HeroSection heroData={heroData} />
-      {/* Footer can be added here if desired, example did not have a prominent one */}
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
+      <Header data={sourinHeaderData} />
+      
+      <main className="flex-grow">
+        <HeroSection data={sourinHeroData} />
+        
+        <AboutMeSection data={aboutMeData} />
+        <Separator className="my-0 print-hidden" /> {/* Adjusted for section transition */}
+        
+        <SkillsSection data={sourinSkillsData} />
+        <Separator className="my-0 print-hidden" />
+        
+        <ProjectsSection data={sourinProjectsData} />
+        <Separator className="my-0 print-hidden" />
+        
+        <AchievementsSection data={achievementsData} />
+        <Separator className="my-0 print-hidden" />
+        
+        <ContactSection data={sourinContactData} />
+      </main>
+      
+      <Footer data={footerData} />
     </div>
   );
 }

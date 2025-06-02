@@ -1,14 +1,14 @@
+// This component is for the original PortfolioPrint design.
+// For Sourin Dey's portfolio, sections are handled by src/components/portfolio-sourin/*
 import Image from 'next/image';
-import type { IntroductionData } from '@/types';
-import { Card, CardContent } from '@/components/ui/card'; // CardHeader, CardTitle removed as not used in this version
+import type { IntroductionData } from '@/types'; // Original IntroductionData
+import { Card, CardContent } from '@/components/ui/card';
 import { Mail, Phone, Linkedin, Github, Globe } from 'lucide-react';
 
 interface IntroductionSectionProps {
   data: IntroductionData;
 }
 
-// This component is no longer the primary display for introduction but can be kept for other uses or a more detailed "About Me" page.
-// For the new design, HeroSection.tsx handles the main intro.
 export default function IntroductionSection({ data }: IntroductionSectionProps) {
   const { name, title, professionalSummary, photoUrl, contact } = data;
 
