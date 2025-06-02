@@ -1,8 +1,9 @@
-import { defineFlow } from 'genkit';
+'use server';
+
 import { z } from 'zod';
 import { ai } from '../genkit';
 
-export const summarizeDetailsFlow = defineFlow(
+export const summarizeDetailsFlow = ai.defineFlow(
   {
     name: 'summarizeDetailsFlow',
     inputSchema: z.object({
@@ -26,7 +27,7 @@ export const summarizeDetailsFlow = defineFlow(
           temperature: 0.6,
         },
       });
-      const summary = llmResponse.text();
+      const summary = llmResponse.text; 
       if (!summary) {
         throw new Error("AI could not generate a summary. The response was empty.");
       }
