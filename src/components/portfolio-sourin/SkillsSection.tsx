@@ -19,7 +19,7 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
   const { headline, categories, languages } = data;
 
   return (
-    <section id="skills" className="py-16 md:py-24 bg-background text-foreground print-break-inside-avoid">
+    <section id="skills" className="py-16 md:py-24 text-foreground print-break-inside-avoid"> {/* REMOVED bg-background */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4 print-text-black">{headline}</h2>
@@ -30,7 +30,7 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
           {categories.map((category: SourinSkillCategory, index: number) => {
             const IconComponent = getIconComponent(category.iconName);
             return (
-              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow print-shadow-none">
+              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow print-shadow-none bg-card/80 backdrop-blur-sm"> {/* Added bg-card/80 backdrop-blur-sm for better visibility on image */}
                 <CardHeader>
                   <CardTitle className="text-xl font-semibold text-primary flex items-center print-text-black">
                     <IconComponent className="h-6 w-6 mr-3 text-accent" />
@@ -55,7 +55,7 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
           <h3 className="text-2xl font-semibold text-primary mb-6 text-center md:text-left print-text-black">Languages Known</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {languages.map((lang: LanguageSkill, index: number) => (
-              <Card key={index} className="shadow-md print-shadow-none">
+              <Card key={index} className="shadow-md print-shadow-none bg-card/80 backdrop-blur-sm"> {/* Added bg-card/80 backdrop-blur-sm */}
                 <CardContent className="p-4">
                   <p className="text-lg font-medium text-primary print-text-black">{lang.name}</p>
                   <p className="text-sm text-muted-foreground">{lang.proficiency}</p>

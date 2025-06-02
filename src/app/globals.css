@@ -5,8 +5,8 @@
 @layer base {
   :root {
     /* PortfolioPrint/Sourin Dey Theme (Light by Default) */
-    --background: 220 13% 97%; /* Light Gray #F2F4F7 */
-    --foreground: 210 29% 29%; /* Dark Grayish Blue for text */
+    --background: 220 13% 97%; /* Light Gray #F2F4F7 - Still used for cards etc. */
+    --foreground: 220 20% 97%; /* UPDATED: Was dark, now very light for dark background image */
 
     --card: 0 0% 100%; /* White */
     --card-foreground: 210 29% 29%; /* Dark Grayish Blue */
@@ -103,7 +103,15 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground; /* Uses the new light --foreground */
+    /* The bg-background applied by default will act as a fallback color */
+    @apply bg-background; 
+    background-image: url('/portfolio-background.jpg'); /* Make sure this image is in your /public folder */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
   }
   /* Adding a serif font style for headings if needed */
   .font-serif-heading {
@@ -119,6 +127,7 @@
   body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    background-image: none !important; /* Remove background image for print */
     background-color: white !important;
     color: black !important;
   }

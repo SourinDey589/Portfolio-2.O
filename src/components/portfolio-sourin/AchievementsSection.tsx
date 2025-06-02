@@ -12,7 +12,7 @@ export default function AchievementsSection({ data }: AchievementsSectionProps) 
   const icons = [<Award className="h-5 w-5 mr-3 text-accent flex-shrink-0" />, <CheckCircle className="h-5 w-5 mr-3 text-accent flex-shrink-0" />, <Star className="h-5 w-5 mr-3 text-accent flex-shrink-0" />];
 
   return (
-    <section id="achievements" className="py-16 md:py-24 bg-background text-foreground print-break-inside-avoid">
+    <section id="achievements" className="py-16 md:py-24 text-foreground print-break-inside-avoid"> {/* REMOVED bg-background */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4 print-text-black">{headline}</h2>
@@ -20,11 +20,11 @@ export default function AchievementsSection({ data }: AchievementsSectionProps) 
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Card className="shadow-xl print-shadow-none">
+          <Card className="shadow-xl print-shadow-none bg-card/80 backdrop-blur-sm"> {/* Added bg-card/80 backdrop-blur-sm */}
             <CardContent className="p-6 md:p-8">
               <ul className="space-y-4">
                 {achievements.map((achievement, index) => (
-                  <li key={index} className="flex items-start text-lg text-foreground/90 print-text-black">
+                  <li key={index} className="flex items-start text-lg text-card-foreground/90 print-text-black"> {/* Changed to text-card-foreground for better contrast on semi-transparent card */}
                     {icons[index % icons.length]}
                     <span>{achievement}</span>
                   </li>
