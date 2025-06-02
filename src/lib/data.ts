@@ -35,8 +35,8 @@ export const sourinHeroData: SourinHeroData = {
   subHeadline: "Bringing outstanding computer and communication skills to innovative projects.",
   ctaProjectsText: "View My Projects",
   ctaContactText: "Connect with Me",
-  photoUrl: "/sourin-dey-profile.jpeg", // Updated image path
-  dataAiHintPhoto: "Sourin Dey professional photo", // Updated AI hint
+  photoUrl: "/1800.png", // Updated image path
+  dataAiHintPhoto: "professional portrait", // Updated AI hint
 };
 
 export const aboutMeData: AboutMeData = {
@@ -143,3 +143,70 @@ export const footerData: FooterData = {
   copyrightText: `© ${new Date().getFullYear()} Sourin Dey. All rights reserved.`,
   socialLinks: sourinSocialLinks,
 };
+
+// --- General PortfolioPrint types (can be phased out or kept for other uses) ---
+export interface ContactInfo { // Used by original ContactSection and IntroductionSection
+  email: string;
+  phone?: string;
+  linkedin?: string;
+  github?: string;
+  website?: string;
+}
+
+export interface IntroductionData { // Used by original IntroductionSection
+  name: string;
+  title: string;
+  professionalSummary: string;
+  photoUrl: string;
+  contact: ContactInfo;
+}
+
+export interface SkillCategory { // Used by original SkillsSection
+  categoryName: string;
+  skills: string[];
+  iconName?: string;
+}
+
+export interface ProjectData { // Used by original ProjectCard/ProjectsSection
+  id: string;
+  title: string;
+  category: string;
+  thumbnailUrl: string;
+  dataAiHint?: string;
+  shortDescription: string;
+  detailedDescription?: string;
+  technologies: string[];
+  projectUrl?: string;
+  repoUrl?: string;
+}
+
+// --- Emma Holistic Specific Types (can be removed if not used elsewhere) ---
+export interface EmmaHeroButton {
+  label: string;
+  href: string;
+  variant: "primary" | "secondary";
+  icon?: string; // Icon name from lucide-react
+}
+
+export interface EmmaBulletPoint {
+  lead: string;
+  text: string;
+}
+
+export interface EmmaHeroData {
+  siteName: string;
+  mainHeading: string;
+  description: string;
+  bulletPoints: EmmaBulletPoint[];
+  mainImageUrl: string;
+  navLinks: NavLink[]; // Reuses NavLink
+  socialLinks: { // Emma's specific social links
+    youtube?: string;
+    twitter?: string;
+    facebook?: string;
+    tiktok?: string;
+    instagram?: string;
+  };
+  buttons: EmmaHeroButton[];
+  contactEmail: string;
+}
