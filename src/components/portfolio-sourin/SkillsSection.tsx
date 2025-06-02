@@ -38,15 +38,25 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  {category.categoryName === "Web Technologies" ? (
+                  {category.skills && category.skills.length > 0 ? (
                     <div className="overflow-hidden w-full group/marquee"> {/* marquee-container */}
                       <div className="flex animate-marquee-left group-hover/marquee:[animation-play-state:paused]"> {/* marquee-content */}
-                        {[...category.skills, ...category.skills].map((skill, skillIndex) => (
+                        {/* Render badges twice for seamless loop */}
+                        {category.skills.map((skill, skillIndex) => (
                           <Badge
-                            key={`${category.categoryName}-skill-${skill.name}-${skillIndex}`}
+                            key={`${category.categoryName}-skill-${skill.name}-${skillIndex}-first`}
                             variant="secondary"
                             className="text-sm font-medium py-1 px-3 mx-1 whitespace-nowrap flex-shrink-0"
-                            aria-hidden={skillIndex >= category.skills.length ? true : undefined}
+                          >
+                            {skill.name}
+                          </Badge>
+                        ))}
+                        {category.skills.map((skill, skillIndex) => (
+                          <Badge
+                            key={`${category.categoryName}-skill-${skill.name}-${skillIndex}-second`}
+                            variant="secondary"
+                            className="text-sm font-medium py-1 px-3 mx-1 whitespace-nowrap flex-shrink-0"
+                            aria-hidden="true"
                           >
                             {skill.name}
                           </Badge>
@@ -54,13 +64,7 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, skillIndex) => (
-                        <Badge key={`${category.categoryName}-skill-${skill.name}-${skillIndex}`} variant="secondary" className="text-sm font-medium py-1 px-3">
-                          {skill.name}
-                        </Badge>
-                      ))}
-                    </div>
+                    <p className="text-sm text-muted-foreground">No skills in this category.</p>
                   )}
                 </CardContent>
               </Card>
