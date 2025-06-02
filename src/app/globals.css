@@ -153,3 +153,8 @@
     position: static !important;
   }
 }
+
+/* Pause marquee on hover - using Tailwind's group-hover directly in component is preferred */
+/* .animate-marquee-left:hover {
+  animation-play-state: paused;
+} */
