@@ -15,7 +15,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
   return (
     <section 
       id="home" 
-      className="group min-h-screen flex items-center justify-center py-16 md:py-24 bg-background text-foreground [perspective:1200px]"
+      className="group min-h-screen flex items-center justify-center py-16 md:py-24 text-foreground [perspective:1200px]" // Removed bg-background
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
