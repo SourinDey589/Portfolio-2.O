@@ -1,87 +1,95 @@
-import type { IntroductionData, SkillCategory, ProjectData } from '@/types';
+import type { IntroductionData, SkillCategory, ProjectData, HeroData } from '@/types';
 
+// This data will be used by the new Hero section
+export const heroData: HeroData = {
+  siteName: "EMMA HOLISTIC",
+  mainHeading: "Welcome to Emma Holistic",
+  description: "Through nourishing recipes, mindful movement, and sustainable practices, I share my journey of balanced and healthy living.",
+  bulletPoints: [
+    {
+      lead: "Explore",
+      text: "Learn how to live healthier with my curated content designed to uplift and empower you.",
+    },
+    {
+      lead: "Learn",
+      text: "Access in-depth tutorials, tips, and guides tailored to help you live your happiest life.",
+    }
+  ],
+  mainImageUrl: "https://placehold.co/600x600.png", // Main circular image
+  navLinks: [
+    { label: "MY VLOG", href: "#vlog" },
+    { label: "MY STORY", href: "#story" },
+    { label: "COLLABORATION", href: "#collaboration" },
+    { label: "SOCIALS", href: "#socials" },
+    { label: "CONTACTS", href: "#contacts" },
+  ],
+  socialLinks: {
+    youtube: "https://youtube.com",
+    twitter: "https://twitter.com",
+    facebook: "https://facebook.com",
+    tiktok: "https://tiktok.com", // Assuming TikTok, based on icon
+  },
+  buttons: [
+    { label: "My Vlogs", href: "#my-vlogs", variant: "primary" },
+    { label: "YouTube Shorts", href: "#yt-shorts", variant: "secondary", icon: "Youtube" },
+  ],
+  contactEmail: "emma.holistic@example.com", // Added for potential use in contacts
+};
+
+
+// Existing data, can be repurposed or used for other pages later
 export const introductionData: IntroductionData = {
-  name: "Your Name",
-  title: "Aspiring Software Developer | Full-Stack Enthusiast",
-  professionalSummary:
-    "A recent graduate with a passion for developing innovative software solutions. Eager to apply theoretical knowledge and hands-on project experience to contribute to a dynamic team. Proficient in modern web technologies and quick to learn new skills.",
-  photoUrl: "https://placehold.co/200x200.png",
+  name: "Emma Holistic", // Updated to match example
+  title: "Youtuber & Blogger", // Updated
+  professionalSummary: heroData.description, // Re-using from heroData for consistency
+  photoUrl: heroData.mainImageUrl, // Re-using
   contact: {
-    email: "your.email@example.com",
-    phone: "+1 123-456-7890",
-    linkedin: "linkedin.com/in/yourprofile",
-    github: "github.com/yourusername",
-    website: "yourportfolio.com"
+    email: heroData.contactEmail,
+    phone: "+1 123-456-7890", // Placeholder
+    linkedin: "linkedin.com/in/emmaholistic", // Placeholder
+    github: "github.com/emmaholistic", // Placeholder
+    website: "emmaholistic.com" // Placeholder
   },
 };
 
 export const skillsData: SkillCategory[] = [
   {
-    categoryName: "Programming Languages",
-    skills: ["JavaScript (ES6+)", "TypeScript", "Python", "Java"],
-    iconName: "Code2",
+    categoryName: "Content Creation",
+    skills: ["Video Editing", "Script Writing", "Photography", "SEO Optimization"],
+    iconName: "Code2", // Placeholder icon
   },
   {
-    categoryName: "Frontend Development",
-    skills: ["HTML5", "CSS3", "React", "Next.js", "Tailwind CSS", "Redux"],
-    iconName: "Palette",
+    categoryName: "Wellness Topics",
+    skills: ["Nutrition", "Mindfulness", "Yoga", "Sustainable Living"],
+    iconName: "Palette", // Placeholder icon
   },
-  {
-    categoryName: "Backend Development",
-    skills: ["Node.js", "Express.js", "REST APIs", "GraphQL (Basic)"],
-    iconName: "Database",
-  },
-  {
-    categoryName: "Tools & Platforms",
-    skills: ["Git & GitHub", "Docker (Basic)", "Firebase", "VS Code"],
-    iconName: "Briefcase",
-  },
-  {
-    categoryName: "Soft Skills",
-    skills: ["Problem Solving", "Team Collaboration", "Communication", "Agile Methodologies"],
-    iconName: "Brain",
-  }
 ];
 
 export const projectsData: ProjectData[] = [
   {
     id: "project1",
-    title: "E-commerce Platform Concept",
-    category: "Web Development",
+    title: "Nourishing Recipes Series",
+    category: "Vlog Series",
     thumbnailUrl: "https://placehold.co/600x400.png",
-    dataAiHint: "online shopping",
+    dataAiHint: "healthy food",
     shortDescription:
-      "Developed a full-stack e-commerce platform prototype featuring product listings, user authentication, and a shopping cart.",
+      "A collection of video recipes focusing on healthy and delicious meals.",
     detailedDescription:
-      "This project involved building a responsive frontend with React and managing backend logic with Node.js and Express. Implemented JWT for secure authentication and integrated a mock payment gateway. The database was designed using MongoDB.",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-    projectUrl: "#", // Replace with actual URL
-    repoUrl: "#", // Replace with actual URL
+      "This series showcases easy-to-follow recipes that promote a balanced diet. Each video includes nutritional information and cooking tips.",
+    technologies: ["Video Production", "Recipe Development"],
+    projectUrl: "#",
   },
   {
     id: "project2",
-    title: "Task Management App",
-    category: "Web Application",
+    title: "Mindful Movement Guide",
+    category: "E-book",
     thumbnailUrl: "https://placehold.co/600x400.png",
-    dataAiHint: "to do list",
+    dataAiHint: "yoga meditation",
     shortDescription:
-      "A web-based task management application allowing users to create, track, and manage their daily tasks with a clean UI.",
+      "An e-book guide to incorporating mindful movement and meditation into daily life.",
     detailedDescription:
-      "Built with Next.js for server-side rendering and static site generation capabilities. Utilized Firebase Firestore for real-time data synchronization and Firebase Authentication for user management. Focused on a seamless user experience and performance.",
-    technologies: ["Next.js", "Firebase", "TypeScript", "Chakra UI"],
-    repoUrl: "#", // Replace with actual URL
-  },
-  {
-    id: "project3",
-    title: "Personal Portfolio Website",
-    category: "Web Design",
-    thumbnailUrl: "https://placehold.co/600x400.png",
-    dataAiHint: "personal website",
-    shortDescription:
-      "Designed and developed this personal portfolio website to showcase skills and projects. (Meta, right?)",
-    detailedDescription:
-      "This website itself is a testament to my frontend development skills. Built using Next.js and Tailwind CSS, focusing on a clean, responsive, and print-friendly design. Leveraged server components for performance and ShadCN UI for pre-built components.",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "ShadCN UI"],
-    projectUrl: "#", // Replace with actual URL
+      "This guide provides practical exercises and tips for reducing stress and improving well-being through mindfulness and gentle movement.",
+    technologies: ["Writing", "Graphic Design"],
+    projectUrl: "#",
   },
 ];
