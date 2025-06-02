@@ -1,5 +1,4 @@
 import type { IntroductionData, SkillCategory, ProjectData } from '@/types';
-import { Briefcase, Code2, Palette, Brain, Share2, Database, Cloud } from 'lucide-react';
 
 export const introductionData: IntroductionData = {
   name: "Your Name",
@@ -20,27 +19,27 @@ export const skillsData: SkillCategory[] = [
   {
     categoryName: "Programming Languages",
     skills: ["JavaScript (ES6+)", "TypeScript", "Python", "Java"],
-    icon: Code2,
+    iconName: "Code2",
   },
   {
     categoryName: "Frontend Development",
     skills: ["HTML5", "CSS3", "React", "Next.js", "Tailwind CSS", "Redux"],
-    icon: Palette,
+    iconName: "Palette",
   },
   {
     categoryName: "Backend Development",
     skills: ["Node.js", "Express.js", "REST APIs", "GraphQL (Basic)"],
-    icon: Database,
+    iconName: "Database",
   },
   {
     categoryName: "Tools & Platforms",
     skills: ["Git & GitHub", "Docker (Basic)", "Firebase", "VS Code"],
-    icon: Briefcase,
+    iconName: "Briefcase",
   },
   {
     categoryName: "Soft Skills",
     skills: ["Problem Solving", "Team Collaboration", "Communication", "Agile Methodologies"],
-    icon: Brain,
+    iconName: "Brain",
   }
 ];
 

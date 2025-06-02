@@ -1,16 +1,27 @@
+
 "use client";
 
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 import type { SkillCategory } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Sparkles, Tag } from 'lucide-react';
-import AISummaryGenerator from './AISummaryGenerator'; // Ensure this path is correct
+import { Sparkles, Tag, Code2, Palette, Brain, Database, Briefcase } from 'lucide-react'; // Import all needed icons
+import AISummaryGenerator from './AISummaryGenerator';
 
 interface SkillsSectionProps {
   data: SkillCategory[];
 }
+
+const iconMap: { [key: string]: React.ElementType } = {
+  Code2,
+  Palette,
+  Brain,
+  Database,
+  Briefcase,
+  Tag, // Default/fallback icon
+};
 
 export default function SkillsSection({ data }: SkillsSectionProps) {
   const [isAISummaryOpen, setIsAISummaryOpen] = useState(false);
@@ -21,7 +32,6 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
     setSelectedSkillText(textForAI);
     setIsAISummaryOpen(true);
   };
-
 
   return (
     <Card className="w-full shadow-lg mt-8 print-shadow-none print-break-inside-avoid">
@@ -38,21 +48,24 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
         </Button>
       </CardHeader>
       <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.map((category, index) => (
-          <div key={index} className="p-4 rounded-lg border bg-background hover:shadow-md transition-shadow print-shadow-none">
-            <h3 className="text-lg font-semibold text-primary mb-3 flex items-center print-text-black">
-              {category.icon ? <category.icon className="h-5 w-5 mr-2 text-accent" /> : <Tag className="h-5 w-5 mr-2 text-accent" />} 
-              {category.categoryName}
-            </h3>
-            <ul className="space-y-2">
-              {category.skills.map((skill, skillIndex) => (
-                <li key={skillIndex}>
-                  <Badge variant="secondary" className="text-sm font-normal py-1 px-2.5">{skill}</Badge>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {data.map((category, index) => {
+          const IconComponent = category.iconName ? iconMap[category.iconName] || Tag : Tag;
+          return (
+            <div key={index} className="p-4 rounded-lg border bg-background hover:shadow-md transition-shadow print-shadow-none">
+              <h3 className="text-lg font-semibold text-primary mb-3 flex items-center print-text-black">
+                <IconComponent className="h-5 w-5 mr-2 text-accent" />
+                {category.categoryName}
+              </h3>
+              <ul className="space-y-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <li key={skillIndex}>
+                    <Badge variant="secondary" className="text-sm font-normal py-1 px-2.5">{skill}</Badge>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </CardContent>
        <AISummaryGenerator
         isOpen={isAISummaryOpen}

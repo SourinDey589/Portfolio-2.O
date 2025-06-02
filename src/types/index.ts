@@ -18,7 +18,7 @@ export interface IntroductionData {
 export interface SkillCategory {
   categoryName: string;
   skills: string[];
-  icon?: React.ElementType;
+  iconName?: string; // Changed from icon: React.ElementType
 }
 
 export interface ProjectData {
