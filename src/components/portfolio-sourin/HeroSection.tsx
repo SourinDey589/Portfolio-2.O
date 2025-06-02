@@ -13,10 +13,15 @@ export default function HeroSection({ data }: HeroSectionProps) {
   const { headline, subHeadline, ctaProjectsText, ctaContactText, photoUrl, dataAiHintPhoto } = data;
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center py-16 md:py-24 bg-background text-foreground">
+    <section 
+      id="home" 
+      className="group min-h-screen flex items-center justify-center py-16 md:py-24 bg-background text-foreground [perspective:1200px]"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
+          <div 
+            className="text-center md:text-left transition-transform duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(-2deg)_translateZ(30px)_scale(1.01)]"
+          >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
               {headline}
             </h1>
@@ -38,7 +43,9 @@ export default function HeroSection({ data }: HeroSectionProps) {
               </Button>
             </div>
           </div>
-          <div className="flex justify-center md:justify-end">
+          <div 
+            className="flex justify-center md:justify-end transition-transform duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(2deg)_translateZ(30px)_scale(1.01)]"
+          >
             <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px]">
               <Image
                 src={photoUrl}

@@ -26,20 +26,22 @@ export default function ProjectCardSourin({ project }: ProjectCardSourinProps) {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   return (
-    <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-shadow print-shadow-none print-break-inside-avoid">
+    <Card 
+      className="flex flex-col h-full shadow-md hover:shadow-xl transition-all duration-500 ease-out print-shadow-none print-break-inside-avoid [transform-style:preserve-3d] group-hover:[transform:rotateY(3deg)_scale(1.03)] group-hover:shadow-2xl"
+    >
       <CardHeader className="p-4">
         {project.imageUrl && (
-          <div className="relative w-full h-48 mb-4 rounded-t-md overflow-hidden group">
+          <div className="relative w-full h-48 mb-4 rounded-t-md overflow-hidden image-group"> {/* Renamed from 'group' to 'image-group' to avoid conflict */}
             <Image
               src={project.imageUrl}
               alt={project.title}
               layout="fill"
               objectFit="cover"
-              className="transform group-hover:scale-105 transition-transform duration-300"
+              className="transform image-group-hover:scale-105 transition-transform duration-300" // Changed to image-group-hover
               data-ai-hint={project.dataAiHintImage || "project image"}
             />
              {project.liveDemoUrl && (
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 image-group-hover:opacity-100 transition-opacity duration-300"> {/* Changed to image-group-hover */}
                   <Button asChild variant="secondary" size="sm">
                     <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" /> Live Demo

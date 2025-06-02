@@ -20,7 +20,9 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
         {projects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <ProjectCardSourin key={project.id} project={project} />
+              <div key={project.id} className="group [perspective:1000px]">
+                <ProjectCardSourin project={project} />
+              </div>
             ))}
           </div>
         ) : (
