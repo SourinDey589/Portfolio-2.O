@@ -27,7 +27,7 @@ export default function ProjectCardSourin({ project }: ProjectCardSourinProps) {
 
   return (
     <Card 
-      className="flex flex-col h-full shadow-md hover:shadow-xl transition-all duration-500 ease-out print-shadow-none print-break-inside-avoid [transform-style:preserve-3d] group-hover:[transform:rotateY(3deg)_scale(1.03)] group-hover:shadow-2xl"
+      className="flex flex-col h-full shadow-md hover:shadow-xl transition-all duration-500 ease-out print-shadow-none print-break-inside-avoid [transform-style:preserve-3d] group-hover:[transform:rotateY(3deg)_scale(1.03)] group-hover:shadow-2xl bg-card/80 backdrop-blur-sm" // ADDED bg-card/80 backdrop-blur-sm
     >
       <CardHeader className="p-4">
         {project.imageUrl && (
@@ -54,7 +54,7 @@ export default function ProjectCardSourin({ project }: ProjectCardSourinProps) {
         <CardTitle className="text-xl font-semibold text-primary print-text-black">{project.title}</CardTitle>
       </CardHeader>
       <CardContent className="p-4 flex-grow">
-        <p className="text-foreground/80 text-sm leading-relaxed mb-3 print-text-black line-clamp-3">
+        <p className="text-card-foreground/90 text-sm leading-relaxed mb-3 print-text-black line-clamp-3"> {/* Ensure text color contrasts with card */}
           {project.description}
         </p>
         <div className="mb-3">
