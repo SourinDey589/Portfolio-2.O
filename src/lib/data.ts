@@ -14,7 +14,7 @@ import type {
 
 export const sourinSocialLinks: SocialLinkItem[] = [
   { platform: 'linkedin', url: 'https://www.linkedin.com/in/sourin-dey-b575b8227/' },
-  { platform: 'github', url: 'https://github.com/Sourin07' },
+  { platform: 'github', url: 'https://github.com/SourinDey589' },
 ];
 
 export const sourinHeaderData: SourinHeaderData = {
@@ -135,7 +135,7 @@ export const sourinContactData: SourinContactInfo = {
   email: "sourindey510@gmail.com",
   phone: "+91 7478888311",
   linkedinUrl: "https://www.linkedin.com/in/sourin-dey-b575b8227/",
-  githubUrl: "https://github.com/Sourin07",
+  githubUrl: "https://github.com/SourinDey589",
   location: "Dakshinkhanda, Andal, West Bengal, India - 713321",
 };
 
