@@ -1,42 +1,51 @@
-'use server';
+// src/ai/flows/summarizeDetailsFlow.ts
 
-import { z } from 'zod';
-import { ai } from '../genkit';
+import { ai } from 'ai-sdk'; // ✅ Adjust import based on your SDK setup
 
-export const summarizeDetailsFlow = ai.defineFlow(
-  {
-    name: 'summarizeDetailsFlow',
-    inputSchema: z.object({
-      text: z.string().min(10, { message: "Please provide more details for a better summary." }),
-      contentType: z.enum(['skill', 'project']),
-    }),
-    outputSchema: z.string(),
-  },
-  async (input) => {
-    const prompt = `You are an expert resume writer. Summarize the following ${input.contentType} details for a fresher's portfolio. 
-    Make it professional, concise, and impactful. 
-    For projects, aim for 2-3 sentences highlighting key achievements and technologies used.
-    For skills, describe its application or context in 1-2 sentences.
-    Details: """${input.text}"""`;
+interface SummarizeResult {
+  text: string;
+  [key: string]: any;
+}
 
-    try {
-      const llmResponse = await ai.generate({
-        prompt,
-        model: ai.registry.get('googleai/gemini-2.0-flash') || ai.registry.getDefaultModel() || 'googleai/gemini-2.0-flash', // Ensure a model is selected
-        config: {
-          temperature: 0.6,
-        },
-      });
-      const summary = llmResponse.text; 
-      if (!summary) {
-        throw new Error("AI could not generate a summary. The response was empty.");
-      }
-      return summary;
-    } catch (error) {
-      console.error("Error in summarizeDetailsFlow:", error);
-      // Check if error is an instance of Error to access message property
-      const errorMessage = error instanceof Error ? error.message : "An unknown error occurred during summary generation.";
-      return `AI could not generate a summary. Error: ${errorMessage}`;
+/**
+ * summarizeDetailsFlow
+ * ---------------------
+ * Generates a summary of the given prompt using Gemini model.
+ *
+ * @param prompt - The input text to summarize
+ * @returns A structured response with the model's output
+ */
+export async function summarizeDetailsFlow(prompt: string): Promise<SummarizeResult> {
+  try {
+    if (!prompt || prompt.trim().length === 0) {
+      throw new Error('Prompt is required.');
     }
+
+    // ✅ Directly specify the model (no registry)
+    const model = 'googleai/gemini-2.0-flash';
+
+    const llmResponse = await ai.generate({
+      prompt,
+      model,
+      config: {
+        temperature: 0.6,
+      },
+    });
+
+    if (llmResponse && llmResponse.output) {
+      return {
+        text: llmResponse.output,
+        ...llmResponse,
+      };
+    }
+
+    return {
+      text: llmResponse ? String(llmResponse) : '',
+    };
+  } catch (error: any) {
+    console.error('[summarizeDetailsFlow] Error:', error);
+    return {
+      text: `❌ Error: ${error.message || 'Failed to generate summary'}`,
+    };
   }
-);
+}
