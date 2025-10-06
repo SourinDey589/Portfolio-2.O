@@ -22,7 +22,7 @@ export const summarizeDetailsFlow = ai.defineFlow(
     try {
       const llmResponse = await ai.generate({
         prompt,
-        model: ai.registry.getModel('googleai/gemini-2.0-flash') || ai.registry.getDefaultModel() || 'googleai/gemini-2.0-flash', // Ensure a model is selected
+        model: ai.registry.get('googleai/gemini-2.0-flash') || ai.registry.getDefaultModel() || 'googleai/gemini-2.0-flash', // Ensure a model is selected
         config: {
           temperature: 0.6,
         },
